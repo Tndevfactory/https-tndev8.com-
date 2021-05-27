@@ -1,0 +1,38 @@
+mysql:
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=server
+DB_USERNAME=root
+DB_PASSWORD=
+
+git:
+  server: 
+    git remote add origin https://github.com/Tndevfactory/api-lara-next-lab.git
+    git branch -M master
+  client: 
+    git remote add origin https://github.com/Tndevfactory/api-lara-next-lab.git
+    git branch client
+    git checkout -b client
+    git status
+    git push origin client
+
+
+git clone branch 'client':
+  git clone -b client https://github.com/Tndevfactory/api-lara-next-lab.git
+
+git pull branch 'client':
+  git status
+  git checkout -b client
+  git pull
+  git push origin client
+
+
+
+delete localy:
+ git branch -d client
+
+  
+delete remotely:
+ git push -d origin client
+ git push -d https://github.com/Tndevfactory/soft-paie.git client

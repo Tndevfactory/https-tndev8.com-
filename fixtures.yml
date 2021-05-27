@@ -1,0 +1,290 @@
+ $table->integer('user_id')->unsigned();
+$ar=User::find(12)->roles()->pluck('name')->toArray()
+User::find(3)->roles()->attach(3)
+User::whereHas('roles', function($query) {
+    $query->where('roles.name', 'employee');
+})->get()
+User::has('roles')->get()
+User::with('Roles')->get()
+ DB::table('role_user')->get()
+Role::insert(['name'=> 'admin'])
+
+$user->wkhours()->whereYear('created_at', now()->year)->get();
+$user->wkhours()->create(['user_id'=>3,'login'=>date('Y-m-d')]);
+$user->with('wkhours')->where('id',2)->get()
+> $user->with('wkhours')->where('login', true)->get()
+
+$table->string('nom');
+            $table->string('prenom');
+            $table->string('adresse')->nullable();
+            $table->string('gsm')->nullable();
+            $table->string('file')->nullable();
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+roles:
+admin role_id == 1 
+manager role_id == 2
+employe role_id == 3
+
+// default userfor filling gap
+
+'nom' => 'User',
+'prenom' => 'User',
+'adresse' => 'Rue Tunis, 1023 Tunis',
+'gsm' => '99 999 999',
+'email' => 'default@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/default/user.jpg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+// creation utilisateur 5 (1 admin, 2 managers (5 employes), 13 employees)
+
+manager id-> 1
+User::insert(
+[
+
+'nom' => 'belkahla',
+'prenom' => 'iheb',
+'adresse' => 'Rue Hedi Nouira, 1023 Tunis',
+'gsm' => '99 718 671',
+'email' => 'belkahla@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/manager/belkahla-1/iheb.jpg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+ 
+
+manager id-> 2
+User::insert(
+[
+
+'nom' => 'belkadi',
+'prenom' => 'bassem',
+'adresse' => 'Avenue Habib Bourguiba - 2080 Ariana.',
+'gsm' => '97 719 371',
+'email' => 'bassem@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/manager/belkadi-2/bassem.jpg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+//admin id-> 3
+User::insert([
+'nom' => 'maala',
+'prenom' => 'abdelhamid',
+'adresse' => 'Espace Tunis-Bloc C 1073 Montplaisir',
+'gsm' => '55 719 371',
+'email' => 'maala@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/admin/maala-3/abdelhamid.jpg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+//employe id-> 4
+User::insert([
+'nom' => 'belkadi',
+'prenom' => 'samira',
+'adresse' => 'Espace Tunis-Bloc C 1073 Menzah',
+'gsm' => '523 819 371',
+'email' => 'belkadi@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/employe/belkadi-4/samira.jpg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+//employe id-> 5
+User::insert([
+'nom' => 'fadlaoui',
+'prenom' => 'nassima',
+'adresse' => 'Espace Tunis-Bloc C 1073 ennasr',
+'gsm' => '22 419 371',
+'email' => 'fadlaoui@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/employe/fadlaoui-5/nassima.jpeg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+//employe id-> 6
+User::insert([
+'nom' => 'fahem',
+'prenom' => 'karima',
+'adresse' => ' Avenue Farhat Hached - 1060 Tunis',
+'gsm' => '332 102',
+'email' => 'fahem@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/employe/fahem-6/karima.jpg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+//employe id-> 7
+User::insert([
+'nom' => 'rajhi',
+'prenom' => 'hamdi',
+'adresse' => ' Avenue Tunis Carthage - 1060 Tunis',
+'gsm' => '27 332 102',
+'email' => 'hamdi@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/employe/rajhi-7/hamdi.jpeg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+//employe id-> 8
+User::insert([
+'nom' => 'fekih',
+'prenom' => 'hfaied',
+'adresse' => '  Avenue Habib Bourguiba 1007',
+'gsm' => '99 332 102',
+'email' => 'hfaied@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/employe/fekih-8/hfaied.jpeg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+//employe id-> 9
+User::insert([
+'nom' => 'kahlaoui',
+'prenom' => 'mounir',
+'adresse' => '  45 Avenue Habib Bourguiba 1007',
+'gsm' => '33 355 102',
+'email' => 'kahlaoui@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/employe/kahlaoui-9/mounir.jpg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+
+//employe id-> 10
+User::insert([
+'nom' => 'belhaj-ali',
+'prenom' => 'kamal',
+'adresse' => '  40 Avenue Habib Jgham 1007',
+'gsm' => '44 655 109',
+'email' => 'kamal@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/employe/belhaj-ali-10/kamal.jpg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+//employe id-> 11
+User::insert([
+'nom' => 'lahmer',
+'prenom' => 'najla',
+'adresse' => '  04 Avenue Habiba Messika 1007',
+'gsm' => '97 655 109',
+'email' => 'lahmer@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/employe/lahmer-11/najla.jpg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+//employe id-> 12
+User::insert([
+'nom' => 'lasfer',
+'prenom' => 'sami',
+'adresse' => '  04 Rue Bab El Khadra 1006',
+'gsm' => '32 659 809',
+'email' => 'lasfer@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/employe/Lasfer-12/sami.jpg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+//employe id-> 13
+User::insert([
+'nom' => 'laajili',
+'prenom' => 'manel',
+'adresse' => '  04 Rue Bab Souika 1006',
+'gsm' => '55 657 309',
+'email' => 'laajili@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/employe/laajili-13/manel.jpg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+
+//employe id-> 14
+User::insert([
+'nom' => 'sghaier',
+'prenom' => 'mostfa',
+'adresse' => '  04 Rue Bab Jazira 1009',
+'gsm' => '98 157 409',
+'email' => 'sghaier@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/employe/sghaier-14/mostfa.jpg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+//employe id-> 15
+User::insert([
+'nom' => 'sahli',
+'prenom' => 'samar',
+'adresse' => '  04 Rue Bab Khezema 1009',
+'gsm' => '28 157 609',
+'email' => 'sahli@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/employe/sahli-15/samar.jpg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+//employe id-> 16
+User::insert([
+'nom' => 'chamla',
+'prenom' => 'sami',
+'adresse' => '  19 Rue Bab Elassal 1009',
+'gsm' => '99 151 209',
+'email' => 'chamla@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => 'uploads/users/employe/chamla-16/sami.jpg',
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+//employe id-> 17
+User::insert([
+'nom' => 'faleh',
+'prenom' => 'fethi',
+'adresse' =>  null,
+'gsm' => null,
+'email' => 'faleh@soft-paie.tn',
+'password' => bcrypt('password'),
+'file' => null,
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+//employe id-> 18
+User::insert([
+'nom' => 'latrech',
+'prenom' => 'iheb',
+'adresse' =>  null,
+'gsm' => null,
+'email' => 'iheblatrech1998@gmail.com',
+'password' => bcrypt('password'),
+'file' => null,
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+//employe id-> 19
+User::insert([
+'nom' => 'barhoumi',
+'prenom' => 'chawki',
+'adresse' =>  null,
+'gsm' => null,
+'email' => 'tndevfactory@gmail.com',
+'password' => bcrypt('password'),
+'file' => null,
+'created_at'=> now(),
+'updated_at'=> now(),])
+
+//employe id-> 20
+User::insert([
+'nom' => 'tndev',
+'prenom' => 'factory',
+'adresse' =>  null,
+'gsm' => null,
+'email' => 'tndevfactory@outlook.com',
+'password' => bcrypt('password'),
+'file' => null,
+'created_at'=> now(),
+'updated_at'=> now(),])
+
