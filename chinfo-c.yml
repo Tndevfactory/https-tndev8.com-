@@ -1,0 +1,112 @@
+# @format
+
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
+
+ya react-datepicker react-reveal react-select 
+ya i18next gsap react-color file-loader use-sound form-data
+ya date-fns js-cookie styled-components antd react-icons @ant-design/icons 
+ya framer-motion  react-spring chroma-js babel-preset-next react-loader-spinner
+
+"files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true
+  }
+
+loader: -------------------------------------------
+ import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+  <div
+        className="Bars"
+        style={{
+          float: "right",
+          marginRight: "19px",
+        }}
+      >
+        <Loader
+          type="Bars"
+          color="#00BFFF"
+          height={70}
+          width={70}
+          timeout={3000} //3 secs
+        />
+      </div>
+
+
+  gradient: ------------------------------------------
+    class App extends React.Component {
+  render() {
+    return (
+      <Box color1="#FFA500" />
+    );
+  }
+}
+
+
+const Box = ({color1}) => {
+  const rgb = [color1.substring(1,3), color1.substring(3,5), color1.substring(5,7)];
+  const color2 = `rgb(${rgb.map(c => (parseInt(c, 16) * 0.8)).join()})`;
+  return (
+    <div className="box" style={{background: `linear-gradient(${color1}, ${color2})`}} />
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById("app"));
+
+grid styled components: -------------------------------
+
+  import React from "react";
+import ReactDOM from "react-dom";
+import styled, { css } from "styled-components";
+import chroma from "chroma-js";
+
+import "./styles.css";
+
+export const Item = styled.div`
+  display: flex
+  justify-content: center
+  padding: .5rem
+
+  ${({ color = chroma.random() }) =>
+    css`
+      background-color: ${color}
+      color: ${chroma.contrast(color, "black") >= 4 ? "black" : "white"}
+      font-size: 18px
+      font-weight: bold
+    `}
+`;
+
+export const Grid = styled.div`
+  display: grid
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 50px);
+  grid-gap: 5px
+`;
+
+function App() {
+  return (
+    <div className="App">
+      <Grid>
+        <Item>1</Item>
+        <Item>2</Item>
+        <Item>3</Item>
+        <Item>4</Item>
+        <Item>5</Item>
+        <Item>6</Item>
+        <Item>7</Item>
+        <Item>7</Item>
+        <Item>7</Item>
+      </Grid>
+    </div>
+  );
+}
+
+styled:
+  ${({ switchMode, color = chroma.random() }) =>
+    switchMode &&
+    css`
+      background-color: ${color};
+      color: ${chroma.contrast(color, "black") >= 4 ? "black" : "white"};
+    `}
